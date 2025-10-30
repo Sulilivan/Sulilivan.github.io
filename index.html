@@ -2,53 +2,72 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人主页</title>
+    <title>沙粒文的主页</title>
     <link rel="stylesheet" href="Sulilivan.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>欢迎来到我的主页</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#hobbies">兴趣爱好</a></li>
-                <li><a href="#resources">学习资源</a></li>
-            </ul>
-        </nav>
+        <h1>沙粒文的主页</h1>
     </header>
-    
-    <main>
-        <section id="about">
-            <h2>关于我</h2>
-            <img src="avatar.jpg" alt="个人头像" class="avatar">
-            <p>姓名：沙粒文</p>
-            <p>我正在学习 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">HTML</a>！</p>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="nav-link">基本介绍</a></li>
+                    <li><a href="#edu" class="nav-link">教育经历</a></li>
+                    <li><a href="#projects" class="nav-link">正在开发的项目</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section class="content-area">
+            <div id="intro" class="content-section">
+                <div class="about-header">
+                    <img src="avatar.jpg" alt="个人头像" class="avatar">
+                    <span class="about-name">沙粒文</span>
+                </div>
+                <h2>基本介绍</h2>
+                <p>沙粒文(Rayan Su)，河海大学2023级本科在读，爱好足球。</p>
+                <p>目前专注于 Web 平台架构与开发，欢迎交流学习心得与项目经验！</p>
+                <p>邮箱：<a href="mailto:2232618782s@gamil.com">2232618782s@gamil.com</a></p>
+            </div>
+            <div id="edu" class="content-section">
+                <h2>教育经历</h2>
+                <ul>
+                    <li>高中：山西大学附属中学</li>
+                    <li>本科：河海大学,智慧水利</li>
+                </ul>
+            </div>
+            <div id="projects" class="content-section">
+                <h2>正在开发的项目</h2>
+                <ul>
+                    <li>
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/Sulilivan" target="_blank"> GitHub 主页</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-folder-open"></i>
+                        <a href="https://github.com/Sulilivan/Flea" target="_blank">Flea 仓库-专一的校园二手交易平台</a>
+                    </li>
+                </ul>
+            </div>
         </section>
-        
-        <section id="hobbies">
-            <h2>我的兴趣爱好</h2>
-            <ul>
-                <li><i class="fas fa-futbol"></i> 足球</li>
-                <li><i class="fas fa-film"></i> 电影</li>
-                <li><i class="fas fa-code"></i> 编程</li>
-                <li><i class="fas fa-music"></i> 音乐</li>
-                <li><i class="fas fa-travel"></i> 旅行</li>
-            </ul>
-        </section>
-        
-        <section id="resources">
-            <h2>学习资源</h2>
-            <ul>
-                <li><a href="https://www.w3schools.com/html/">W3Schools HTML 教程</a></li>
-                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">MDN HTML 文档</a></li>
-            </ul>
-        </section>
-    </main>
-    
+    </div>
     <footer>
-        <p>&copy; 2023 我的个人主页</p>
+        <p>&copy; 2025 沙粒文的主页 | 由 <a href="https://github.com/Sulilivan" target="_blank">Sulilivan</a> 构建</p>
     </footer>
     <script src="Sulilivan.js"></script>
+    <script>
+    // 简单导航切换
+    document.querySelectorAll('.nav-link').forEach(function(link){
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+            link.classList.add('active');
+            document.querySelectorAll('.content-section').forEach(sec=>sec.classList.remove('active'));
+            document.querySelector(link.getAttribute('href')).classList.add('active');
+        });
+    });
+    </script>
 </body>
 </html>
